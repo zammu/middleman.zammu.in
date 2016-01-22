@@ -5,8 +5,8 @@
 config[:casper] = {
   blog: {
     url: 'http://www.example.com',
-    name: 'Middleman',
-    description: 'Makes developing websites simple.',
+    name: 'Middleman using Zammu',
+    description: 'Automatic Deployment of Middleman on Github Pages using Zammu',
     date_format: '%d %B %Y',
     navigation: true,
     logo: nil # Optional
