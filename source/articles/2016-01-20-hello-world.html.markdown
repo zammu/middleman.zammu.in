@@ -1,7 +1,8 @@
 ---
 title: Hello World
-date: 2016-01-22
-tags: hello
+date: 2016-01-20
+tags: Hello
+layout: post
 ---
 
 ## Hello World
