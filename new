@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+require 'fileutils'
+
+title = ARGV[0]
+categories = ARGV[1] || ''
+date = Time.now.strftime("%Y-%m-%d")
+content = DATA.read.gsub('TITLE', title).gsub('DATE', date).gsub('CATEGORIES', categories)
+filename = title.downcase.gsub(/[^a-z0-9]/, '-').gsub(/\-+/, '-')
+
+CURRENT_SYMLINK = './current.markdown'
+
+filepath = "./source/articles/#{date}-#{filename}.markdown"
+puts "writing #{filepath}"
+File.write(filepath, content)
+FileUtils.rm_f(CURRENT_SYMLINK)
+FileUtils.ln_s(filepath, CURRENT_SYMLINK)
+puts "symlinked new article with #{CURRENT_SYMLINK}"
+
+__END__
+---
+title: TITLE
+date: DATE
+tags: CATEGORIES
+---
